@@ -1,0 +1,32 @@
+{
+    "@gmail.com": {
+        "email": "@gmail.com",
+        "nome": "fabricio",
+        "sobrenome": "souza",
+        "residencia": "belem",
+        "formação academica": [
+            "ciencia da computação"
+        ],
+        "habilidade": [
+            "programação web"
+        ],
+        "experiencia": [
+            "projeto pessoais em django"
+        ]
+    },
+    "fffff@gmail.com": {
+        "email": "fffff@gmail.com",
+        "nome": "fabricio",
+        "sobrenome": "souza",
+        "residencia": "belem",
+        "formação academica": [
+            "sistema de informação"
+        ],
+        "habilidade": [
+            "programação web"
+        ],
+        "experiencia": [
+            "projeto pessoais em django"
+        ]
+    }
+}
