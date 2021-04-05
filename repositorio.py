@@ -8,7 +8,20 @@ class RepositorioProfessionalProfile:
         self.load()
 
     def save(self, profiles):
-        self.profiles.append(profiles)
+        self.profiles[profiles["email"]] = profiles
+
+    def findUser(self, email):
+        return self.profiles[email]
+
+    def find(self, field, search):
+        user_search = []
+        for k, user in self.profiles.items():
+            if user[field] == search:
+                user_search.append(user)
+        return user_search
+
+    def find_all(self):
+        return self.profiles
 
     def load(self):
         profiles_data = {}
