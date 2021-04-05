@@ -1,4 +1,5 @@
 import json
 from repositorio import RepositorioProfessionalProfile
 profissionalProfile = RepositorioProfessionalProfile()
-profissionalProfile.find("residencia", "belem")
+usuarios = profissionalProfile.find("residencia", "belem")
+print(usuarios)
