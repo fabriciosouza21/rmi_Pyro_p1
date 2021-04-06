@@ -10,6 +10,7 @@ def filtrar_dados():
         print('[3] Sair')
         opcao_filtro = int(input('Informe uma opção: '))
         print('====================================================')
+        
         if(opcao_filtro == 1):
             break
         elif(opcao_filtro == 2):
@@ -31,20 +32,24 @@ def filtrar_dados():
         else:
             print('Opção inválida!')
 
-while True:
-    print('====================================================')
-    print('[1] Listar todos os  perfis')
-    print('[2] Filtrar perfis')
-    print('[3] Sair')
-    opcao = int(input('Informe uma opção: '))
-    print('====================================================')
-      
-    if(opcao == 1):
-        pass
-    elif(opcao == 2):
-        filtrar_dados()
-    elif(opcao == 3):
-        print('\nEncerrando...')
-        break
-    else:
-        print('\nOpção inválida!')
+def main():
+    while True:
+        print('====================================================')
+        print('[1] Listar todos os perfis')
+        print('[2] Filtrar perfis')
+        print('[3] Sair')
+        opcao = int(input('Informe uma opção: '))
+        print('====================================================')
+        
+        if(opcao == 1):
+            pass
+        elif(opcao == 2):
+            filtrar_dados()
+        elif(opcao == 3):
+            print('\nEncerrando...')
+            break
+        else:
+            print('\nOpção inválida!')
+
+if __name__ == '__main__':
+    main()
