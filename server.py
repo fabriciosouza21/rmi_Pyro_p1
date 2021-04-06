@@ -7,12 +7,12 @@ from repositorio import RepositorioProfessionalProfile
 @Pyro4.expose
 @Pyro4.behavior(instance_mode="single")
 class Interface(object):
-    def dados(self, field, search):
+    def data(self, field, search):
         profissionalProfile = RepositorioProfessionalProfile()
 
-        usuarios = profissionalProfile.find(field, search)
+        users = profissionalProfile.find(field, search)
 
-        return usuarios
+        return users
 
 class Server():
     def enable(self):

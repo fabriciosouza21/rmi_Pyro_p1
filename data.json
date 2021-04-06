@@ -4,7 +4,7 @@
         "nome": "fabricio",
         "sobrenome": "souza",
         "residencia": "belem",
-        "formação academica": [
+        "formacao academica": [
             "ciencia da computacao"
         ],
         "habilidade": [
@@ -19,7 +19,7 @@
         "nome": "fabricio",
         "sobrenome": "souza",
         "residencia": "belem",
-        "formação academica": [
+        "formacao academica": [
             "sistema de informação"
         ],
         "habilidade": [
@@ -27,6 +27,21 @@
         ],
         "experiencia": [
             "projeto pessoais em django"
+        ]
+    },
+    "yannfabricio@gmail.com": {
+        "email": "yannfabricio@gmail.com",
+        "nome": "Yann",
+        "sobrenome": "Figueiredo",
+        "residencia": "Ananindeua",
+        "formacao academica": [
+            "Engenharia de Software"
+        ],
+        "habilidade": [
+            "Desenvolvimento Android"
+        ],
+        "experiencia": [
+            "Projetos diversos"
         ]
     }
 }
