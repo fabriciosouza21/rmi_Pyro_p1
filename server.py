@@ -1,7 +1,7 @@
-import Pyro4
-import threading
 import time
 import json
+import Pyro4
+import threading
 from repositorio import RepositorioProfessionalProfile
 
 @Pyro4.expose
@@ -19,10 +19,10 @@ class Server():
         #Pyro4.Daemon.serveSimple({Interface: "server.interface"}, ns = True)
         self.daemon = Pyro4.Daemon(port=52119)
         uri = self.daemon.register(Interface, "interface") #Registra um objeto Pyro
-        '''self.thread = threading.Thread(target=self.daemonLoop)
+        self.thread = threading.Thread(target=self.daemonLoop)
         self.thread.start()
-        print("Started thread")'''
-        print('uri: ', uri)
+        print("Started thread")
+        #print('uri: ', uri)
         #ns.register("serv.teste", uri)
 
     def disable(self):
