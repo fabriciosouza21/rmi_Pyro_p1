@@ -10,7 +10,10 @@ class Interface(object):
     def data(self, field, search):
         profissionalProfile = RepositorioProfessionalProfile()
 
-        users = profissionalProfile.find(field, search)
+        if field != None and search != None:
+            users = profissionalProfile.find(field, search)
+        else:
+            users = profissionalProfile.find_all()
 
         return users
 

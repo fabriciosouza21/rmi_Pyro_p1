@@ -21,7 +21,11 @@ class RepositorioProfessionalProfile:
         return user_search
 
     def find_all(self):
-        return self.profiles
+        #return self.profiles
+        user_search = []
+        for k, user in self.profiles.items():
+            user_search.append(user)
+        return user_search
 
     def load(self):
         profiles_data = {}
