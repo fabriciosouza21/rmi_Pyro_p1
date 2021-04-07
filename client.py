@@ -2,6 +2,7 @@ import Pyro4
 
 conection = Pyro4.Proxy("PYRO:interface@localhost:52119")
 
+
 def show_users(users):
     for user in users:
         print('\nUsuário: {} {}'.format(user['nome'], user['sobrenome']))
@@ -11,15 +12,16 @@ def show_users(users):
         print('Habilidades: ', user['habilidade'])
         print('Experiência: ', user['experiencia'])
 
+
 def filtrar_dados():
-    while True: 
+    while True:
         print('====================================================')
         print('[1] Listar todos os dados dos perfis filtrados')
         print('[2] Listar 1 dado dos perfis filtrados')
         print('[3] Voltar')
         opcao_filtro = int(input('Informe uma opção: '))
         print('====================================================')
-        
+
         if(opcao_filtro == 1):
             field = input("Qual o campo que deseja pesquisar? ").strip()
             search = input("Informe {}: ".format(field)).strip()
@@ -39,12 +41,13 @@ def filtrar_dados():
             for user in users:
                 print('\n{}: {}'.format(field, user[field]))
                 print('{}: {}'.format(dado, user[dado]))
-            
+
             break
         elif(opcao_filtro == 3):
             break
         else:
             print('Opção inválida!')
+
 
 def main():
     while True:
@@ -56,11 +59,11 @@ def main():
         print('[5] Sair')
         opcao = int(input('Informe uma opção: '))
         print('====================================================')
-        
+
         if(opcao == 1):
-            break #Adicionar perfil
+            adicionar_perfil()
         elif(opcao == 2):
-            break #Editar perfil
+            break  # Editar perfil
         elif(opcao == 3):
             users = conection.data(None, None)
 
@@ -72,6 +75,35 @@ def main():
             break
         else:
             print('\nOpção inválida!')
+
+
+def adicionar_perfil():
+    perfil = {}
+    habilidades = []
+    experiencias = []
+    formacao_academica = []
+
+    print("adicinando perfil")
+    perfil["nome"] = input("Nome: ")
+    perfil["sobrenome"] = input("Sobrenome: ")
+    perfil["email"] = input("email: ")
+    perfil["residencia"] = input("residencia: ")
+
+    formacao = input("formacao academica: ")
+    formacao_academica.append(formacao)
+    perfil["formacao academica"] = formacao_academica
+
+    habilidade = input("Habilidade: ")
+    habilidades.append(habilidade)
+    perfil["habilidades"] = habilidades
+
+    experiencia = input("Experiencia: ")
+    experiencias.append(experiencia)
+    perfil["experiencia"] = experiencias
+
+    conection.adicionar_perfil(perfil)
+    # print(conection.profiles.find_all())
+
 
 if __name__ == '__main__':
     main()

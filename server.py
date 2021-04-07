@@ -4,9 +4,13 @@ import Pyro4
 import threading
 from repositorio import RepositorioProfessionalProfile
 
+
 @Pyro4.expose
 @Pyro4.behavior(instance_mode="single")
 class Interface(object):
+    def __init__(self):
+        self.profiles = RepositorioProfessionalProfile()
+
     def data(self, field, search):
         profissionalProfile = RepositorioProfessionalProfile()
 
@@ -17,11 +21,16 @@ class Interface(object):
 
         return users
 
+    def adicionar_perfil(self, profile):
+        self.profiles.save(profile)
+
+
 class Server():
     def enable(self):
         #Pyro4.Daemon.serveSimple({Interface: "server.interface"}, ns = True)
         self.daemon = Pyro4.Daemon(port=52119)
-        uri = self.daemon.register(Interface, "interface") #Registra um objeto Pyro
+        # Registra um objeto Pyro
+        uri = self.daemon.register(Interface, "interface")
         self.thread = threading.Thread(target=self.daemonLoop)
         self.thread.start()
         print("Started thread")
@@ -36,11 +45,13 @@ class Server():
         self.daemon.requestLoop()
         print("Daemon has shut down no prob")
 
+
 def main():
     server = Server()
 
     server.enable()
     server.daemonLoop()
+
 
 if __name__ == '__main__':
     main()

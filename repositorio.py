@@ -21,7 +21,7 @@ class RepositorioProfessionalProfile:
         return user_search
 
     def find_all(self):
-        #return self.profiles
+        # return self.profiles
         user_search = []
         for k, user in self.profiles.items():
             user_search.append(user)
@@ -33,3 +33,21 @@ class RepositorioProfessionalProfile:
             with open('data.json') as f:
                 profiles_data = json.load(f)
         self.profiles = profiles_data
+
+
+user = RepositorioProfessionalProfile()
+A = {
+    "email": "@gmail.com",
+    "nome": "fabricio",
+    "sobrenome": "souza",
+    "residencia": "Ananideua",
+    "formacao academica": [
+            "ciencia da computacao"
+    ],
+    "habilidade": [
+        "programação web"
+    ],
+    "experiencia": [
+        "projeto pessoais em django"
+    ]
+}
