@@ -17,7 +17,7 @@ def filtrar_dados():
     while True:
         print('====================================================')
         print('[1] Listar todos os dados dos perfis filtrados')
-        print('[2] Listar 1 dado dos perfis filtrados')
+        print('[2] Listar dados específicos dos perfis filtrados')
         print('[3] Voltar')
         opcao_filtro = int(input('Informe uma opção: '))
         print('====================================================')
@@ -32,15 +32,26 @@ def filtrar_dados():
 
             break
         elif(opcao_filtro == 2):
+            dado = []
             field = input("Qual o campo que deseja pesquisar? ").strip()
             search = input("Informe {}: ".format(field)).strip()
-            dado = input("Informe qual dado do perfil deve aparecer: ".strip())
+            dado.append(input("Informe qual dado do perfil deve aparecer: ".strip()))
+            
+            while True:
+                op_dado = int(input("\nDeseja adicionar mais um dado? [1-Sim/2-Não] "))
+                if op_dado == 1:
+                    dado.append(input("Informe qual dado do perfil deve aparecer: ".strip()))
+                elif op_dado == 2:
+                    break
+                else:
+                    print('Opção inválida!')
 
             users = conection.data(field, search)
 
             for user in users:
                 print('\n{}: {}'.format(field, user[field]))
-                print('{}: {}'.format(dado, user[dado]))
+                for i in range(0, len(dado)):
+                    print('{}: {}'.format(dado[i], user[dado[i]]))
 
             break
         elif(opcao_filtro == 3):
