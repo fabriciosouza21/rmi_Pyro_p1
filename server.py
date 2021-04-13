@@ -1,5 +1,3 @@
-import time
-import json
 import Pyro4
 import threading
 from repositorio import RepositorioProfessionalProfile
@@ -24,10 +22,13 @@ class Interface(object):
     def adicionar_perfil(self, profile):
         self.profiles.save(profile)
 
+    def search_residence(self, search):
+        return self.profiles.find("residencia", search)
+
 
 class Server():
     def enable(self):
-        #Pyro4.Daemon.serveSimple({Interface: "server.interface"}, ns = True)
+        # Pyro4.Daemon.serveSimple({Interface: "server.interface"}, ns = True)
         self.daemon = Pyro4.Daemon(port=52119)
         # Registra um objeto Pyro
         uri = self.daemon.register(Interface, "interface")
