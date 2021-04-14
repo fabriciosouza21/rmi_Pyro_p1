@@ -20,7 +20,7 @@ def filtrar_dados():
     while True:
         print('====================================================')
         print('[1] Listar todos os dados dos perfis filtrados')
-        print('[2] Listar dados específicos dos perfis filtrados')
+        print('[2] Listar 1 dado dos perfis filtrados')
         print('[3] Voltar')
         opcao_filtro = int(input('Informe uma opção: '))
         print('====================================================')
@@ -35,26 +35,15 @@ def filtrar_dados():
 
             break
         elif(opcao_filtro == 2):
-            dado = []
             field = input("Qual o campo que deseja pesquisar? ").strip()
             search = input("Informe {}: ".format(field)).strip()
-            dado.append(input("Informe qual dado do perfil deve aparecer: ".strip()))
-            
-            while True:
-                op_dado = int(input("\nDeseja adicionar mais um dado? [1-Sim/2-Não] "))
-                if op_dado == 1:
-                    dado.append(input("Informe qual dado do perfil deve aparecer: ".strip()))
-                elif op_dado == 2:
-                    break
-                else:
-                    print('Opção inválida!')
+            dado = input("Informe qual dado do perfil deve aparecer: ".strip())
 
             users = conection.data(field, search)
 
             for user in users:
                 print('\n{}: {}'.format(field, user[field]))
-                for i in range(0, len(dado)):
-                    print('{}: {}'.format(dado[i], user[dado[i]]))
+                print('{}: {}'.format(dado, user[dado]))
 
             break
         elif(opcao_filtro == 3):
@@ -83,6 +72,9 @@ def main():
         print('[5] retorna lista de curso especifico')
         print('[7] dado o email do perfil, retornar sua experiência')
         print('[9] dado o email de um perfil, retornar suas informações')
+
+        print('[6] Habilidades por cidade')
+
         print('[0] Sair')
         opcao = int(input('Informe uma opção: '))
         print('====================================================')
@@ -97,12 +89,18 @@ def main():
             show_users(users)
         elif(opcao == 4):
             filtrar_dados()
+
         elif(opcao == 5):
             search_users_course()
         elif(opcao == 7):
             search_user_email_return_xp()
         elif(opcao == 9):
             search_user_email_return_inf()
+        elif(opcao == 6):
+            ability_residence()
+        elif(opcao == 0):
+            print('\nEncerrando...')
+            break
         else:
             print('\nOpção inválida!')
 
@@ -132,7 +130,23 @@ def adicionar_perfil():
     perfil["experiencia"] = experiencias
 
     conection.adicionar_perfil(perfil)
-    # print(conection.profiles.find_all())
+
+
+def ability_residence():
+    residence = input("residencia na qual deseja localiza as habilidades: ")
+    profiles = conection.search_residence(residence)
+    habilidades = []
+    list_unique_habilidades = []
+    for user in profiles:
+        for habilidade in user["habilidade"]:
+            habilidades.append(habilidade)
+
+    unique_habilidades = set(habilidades)
+    for habilidade in unique_habilidades:
+        list_unique_habilidades.append(habilidade)
+    print(f"habilidades presente em {residence}")
+    for habilidade in list_unique_habilidades:
+        print(habilidade)
 
 
 if __name__ == '__main__':
