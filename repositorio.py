@@ -18,6 +18,10 @@ class RepositorioProfessionalProfile:
         for k, user in self.profiles.items():
             if user[field] == search:
                 user_search.append(user)
+            elif type(user[field]) is list:        
+                for user_filde in user[field]:
+                    if user_filde == search:
+                        user_search.append(user)
         return user_search
 
     def find_all(self):

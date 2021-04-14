@@ -17,7 +17,8 @@ perfil = {
     ]
 }
 profissionalProfile = RepositorioProfessionalProfile()
-
-profissionalProfile.save(perfil)
-usuarios = profissionalProfile.find_all()
-print(usuarios)
+search=profissionalProfile.find('email' ,'yannfabriciogmail.com')
+print(search)
+#profissionalProfile.save(perfil)
+#usuarios = profissionalProfile.find_all()
+#print(usuarios)
