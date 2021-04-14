@@ -9,6 +9,7 @@ class Interface(object):
     def __init__(self):
         self.profiles = RepositorioProfessionalProfile()
 
+
     def data(self, field, search):
         profissionalProfile = RepositorioProfessionalProfile()
 
@@ -19,6 +20,24 @@ class Interface(object):
 
         return users
 
+ 
+    def search_users_course(self,search):
+        return (self.profiles.find('formacao academica',search))
+    
+    
+    def search_user_email_return_xp(self,search):
+        #print(search)
+        experiencia=[]
+        users = self.profiles.find('email',search)
+        for user in users:
+            experiencia.append(user['experiencia'])
+
+        #print(experiencia)
+        return (experiencia)
+    def search_user_email_return_inf(self,search):
+        return self.profiles.find('email',search)
+
+    
     def adicionar_perfil(self, profile):
         self.profiles.save(profile)
 
