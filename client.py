@@ -66,13 +66,15 @@ def main():
         elif(opcao == 2):
             break  # Editar perfil
         elif(opcao == 3):
-            users = conection.data(None, None)
+            users = conection.all_profile()
 
             show_users(users)
         elif(opcao == 4):
             filtrar_dados()
         elif(opcao == 6):
             ability_residence()
+        elif (opcao == 8):
+            add_experience()
         elif(opcao == 0):
             print('\nEncerrando...')
             break
@@ -111,8 +113,10 @@ def adicionar_perfil():
 def ability_residence():
     residence = input("residencia na qual deseja localiza as habilidades: ")
     profiles = conection.search_residence(residence)
+
     habilidades = []
     list_unique_habilidades = []
+
     for user in profiles:
         for habilidade in user["habilidade"]:
             habilidades.append(habilidade)
@@ -120,9 +124,17 @@ def ability_residence():
     unique_habilidades = set(habilidades)
     for habilidade in unique_habilidades:
         list_unique_habilidades.append(habilidade)
+
     print(f"habilidades presente em {residence}")
     for habilidade in list_unique_habilidades:
         print(habilidade)
+
+
+def add_experience():
+    email = input("email: ")
+    experiencia = input("experiecia: ")
+    status = conection.add_experience(email, experiencia)
+    print(conection.all_profile())
 
 
 if __name__ == '__main__':

@@ -1,3 +1,4 @@
+from re import findall
 import Pyro4
 import threading
 from repositorio import RepositorioProfessionalProfile
@@ -24,6 +25,15 @@ class Interface(object):
 
     def search_residence(self, search):
         return self.profiles.find("residencia", search)
+
+    def add_experience(self, email, experiencia):
+        user = self.profiles.findUser(email)
+        user["experiencia"].append(experiencia)
+        return "sucesso"
+
+    def all_profile(self):
+        profiles = self.profiles.find_all()
+        return profiles
 
 
 class Server():
