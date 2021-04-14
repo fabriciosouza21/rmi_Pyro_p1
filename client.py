@@ -13,9 +13,6 @@ def show_users(users):
         print('Experiência: ', user['experiencia'])
 
 
-
-
-
 def filtrar_dados():
     while True:
         print('====================================================')
@@ -51,16 +48,24 @@ def filtrar_dados():
         else:
             print('Opção inválida!')
 
+
 def search_users_course():
     course = input("Digite o Curso!! \n")
-    print('retorno usuario do mesmo curso',conection.search_users_course(course))
+    print('retorno usuario do mesmo curso',
+          conection.search_users_course(course))
+
 
 def search_user_email_return_xp():
     email = input("digite o email da busca \n")
-    print('retorno do usuario busca pelo email em busca da experiencia:',conection.search_user_email_return_xp(email))
+    print('retorno do usuario busca pelo email em busca da experiencia:',
+          conection.search_user_email_return_xp(email))
+
+
 def search_user_email_return_inf():
     email = input("digite o email da busca \n")
-    print('informações retornadas baseadas no email',conection.search_user_email_return_inf(email))
+    print('informações retornadas baseadas no email',
+          conection.search_user_email_return_inf(email))
+
 
 def main():
     while True:
@@ -70,10 +75,11 @@ def main():
         print('[3] Listar todos os perfis')
         print('[4] Filtrar perfis')
         print('[5] retorna lista de curso especifico')
-        print('[7] dado o email do perfil, retornar sua experiência')
-        print('[9] dado o email de um perfil, retornar suas informações')
-
         print('[6] Habilidades por cidade')
+        print('[7] dado o email do perfil, retornar sua experiência')
+        print('[7] dado o email do perfil, retornar sua experiência')
+        print('[8] adicionar nova experiencia dado o email')
+        print('[9] dado o email de um perfil, retornar suas informações')
 
         print('[0] Sair')
         opcao = int(input('Informe uma opção: '))
@@ -81,25 +87,32 @@ def main():
 
         if(opcao == 1):
             adicionar_perfil()
+
         elif(opcao == 2):
             break  # Editar perfil
+
         elif(opcao == 3):
             users = conection.all_profile()
-
             show_users(users)
+
         elif(opcao == 4):
             filtrar_dados()
 
         elif(opcao == 5):
             search_users_course()
-        elif(opcao == 7):
-            search_user_email_return_xp()
-        elif(opcao == 9):
-            search_user_email_return_inf()
+
         elif(opcao == 6):
             ability_residence()
+
+        elif(opcao == 7):
+            search_user_email_return_xp()
+
         elif (opcao == 8):
             add_experience()
+
+        elif(opcao == 9):
+            search_user_email_return_inf()
+
         elif(opcao == 0):
             print('\nEncerrando...')
             break
@@ -155,10 +168,10 @@ def ability_residence():
 
 
 def add_experience():
+    print("adicionar experiencia")
     email = input("email: ")
     experiencia = input("experiecia: ")
-    status = conection.add_experience(email, experiencia)
-    print(conection.all_profile())
+    conection.add_experience(email, experiencia)
 
 
 if __name__ == '__main__':

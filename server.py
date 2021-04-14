@@ -10,35 +10,31 @@ class Interface(object):
     def __init__(self):
         self.profiles = RepositorioProfessionalProfile()
 
-
     def data(self, field, search):
-        profissionalProfile = RepositorioProfessionalProfile()
 
         if field != None and search != None:
-            users = profissionalProfile.find(field, search)
+            users = self.profiles.find(field, search)
         else:
-            users = profissionalProfile.find_all()
+            users = self.profiles.find_all()
 
         return users
 
- 
-    def search_users_course(self,search):
-        return (self.profiles.find('formacao academica',search))
-    
-    
-    def search_user_email_return_xp(self,search):
-        #print(search)
-        experiencia=[]
-        users = self.profiles.find('email',search)
+    def search_users_course(self, search):
+        return (self.profiles.find('formacao academica', search))
+
+    def search_user_email_return_xp(self, search):
+        # print(search)
+        experiencia = []
+        users = self.profiles.find('email', search)
         for user in users:
             experiencia.append(user['experiencia'])
 
-        #print(experiencia)
+        # print(experiencia)
         return (experiencia)
-    def search_user_email_return_inf(self,search):
-        return self.profiles.find('email',search)
 
-    
+    def search_user_email_return_inf(self, search):
+        return self.profiles.find('email', search)
+
     def adicionar_perfil(self, profile):
         self.profiles.save(profile)
 
@@ -48,7 +44,6 @@ class Interface(object):
     def add_experience(self, email, experiencia):
         user = self.profiles.findUser(email)
         user["experiencia"].append(experiencia)
-        return "sucesso"
 
     def all_profile(self):
         profiles = self.profiles.find_all()
