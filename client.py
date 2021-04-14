@@ -13,6 +13,9 @@ def show_users(users):
         print('Experiência: ', user['experiencia'])
 
 
+
+
+
 def filtrar_dados():
     while True:
         print('====================================================')
@@ -59,6 +62,16 @@ def filtrar_dados():
         else:
             print('Opção inválida!')
 
+def search_users_course():
+    course = input("Digite o Curso!! \n")
+    print('retorno usuario do mesmo curso',conection.search_users_course(course))
+
+def search_user_email_return_xp():
+    email = input("digite o email da busca \n")
+    print('retorno do usuario busca pelo email em busca da experiencia:',conection.search_user_email_return_xp(email))
+def search_user_email_return_inf():
+    email = input("digite o email da busca \n")
+    print('informações retornadas baseadas no email',conection.search_user_email_return_inf(email))
 
 def main():
     while True:
@@ -67,7 +80,10 @@ def main():
         print('[2] Editar perfil')
         print('[3] Listar todos os perfis')
         print('[4] Filtrar perfis')
-        print('[5] Sair')
+        print('[5] retorna lista de curso especifico')
+        print('[7] dado o email do perfil, retornar sua experiência')
+        print('[9] dado o email de um perfil, retornar suas informações')
+        print('[0] Sair')
         opcao = int(input('Informe uma opção: '))
         print('====================================================')
 
@@ -82,8 +98,11 @@ def main():
         elif(opcao == 4):
             filtrar_dados()
         elif(opcao == 5):
-            print('\nEncerrando...')
-            break
+            search_users_course()
+        elif(opcao == 7):
+            search_user_email_return_xp()
+        elif(opcao == 9):
+            search_user_email_return_inf()
         else:
             print('\nOpção inválida!')
 
