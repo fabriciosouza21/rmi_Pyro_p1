@@ -53,9 +53,13 @@ class Interface(object):
 class Server():
     def enable(self):
         # Pyro4.Daemon.serveSimple({Interface: "server.interface"}, ns = True)
-        self.daemon = Pyro4.Daemon(port=52119)
+        #self.daemon = Pyro4.Daemon(port=52119)
         # Registra um objeto Pyro
-        uri = self.daemon.register(Interface, "interface")
+        #uri = self.daemon.register(Interface, "interface")
+        self.daemon = Pyro4.Daemon(host='10.0.0.182',port=52119)
+        self.ns = Pyro4.locateNS()
+        self.uri = self.daemon.register(Interface)
+        self.ns.register('example.interface',self.uri)
         self.thread = threading.Thread(target=self.daemonLoop)
         self.thread.start()
         print("Started thread")

@@ -1,6 +1,6 @@
 import Pyro4
 
-conection = Pyro4.Proxy("PYRO:interface@localhost:52119")
+conection = Pyro4.Proxy("PYRONAME:example.interface")
 
 
 def show_users(users):
