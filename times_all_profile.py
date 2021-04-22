@@ -7,8 +7,8 @@ conection = Pyro4.Proxy("PYRONAME:example.interface")
 def time_search_users_course():
     operation = conection.all_profile
     operation_name = "all_profile"
-    result = run_analise(operation=operation,
-                         operation_name=operation_name)
+    result, _ = run_analise(operation=operation,
+                            operation_name=operation_name)
     return result
 
 

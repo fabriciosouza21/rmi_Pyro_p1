@@ -22,8 +22,9 @@ def times_adicionar_perfil():
             "projeto pessoais em django"
         ]
     }
-    result = run_analise(operation=operation,
-                         operation_name=operation_name, parameter1=paramenter)
+    result, _ = run_analise(operation=operation,
+                            operation_name=operation_name,
+                            parameter1=paramenter)
     return result
 
 

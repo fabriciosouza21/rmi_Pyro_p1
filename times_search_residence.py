@@ -8,8 +8,8 @@ def times_search_residence():
     operation = conection.search_residence
     operation_name = "search_residence"
     paramenter = "belem"
-    result = run_analise(operation=operation,
-                         operation_name=operation_name, parameter1=paramenter)
+    result, _ = run_analise(operation=operation,
+                            operation_name=operation_name, parameter1=paramenter)
     return result
 
 

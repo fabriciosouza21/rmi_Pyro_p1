@@ -8,8 +8,8 @@ def time_search_user_email_return_xp():
     operation = conection.search_user_email_return_xp
     operation_name = "search_user_email_return_xp"
     search = "fffff@gmail.com"
-    result = run_analise(operation=operation,
-                         operation_name=operation_name, parameter1=search)
+    result, _ = run_analise(operation=operation,
+                            operation_name=operation_name, parameter1=search)
     return result
 
 

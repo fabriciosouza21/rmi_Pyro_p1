@@ -9,10 +9,10 @@ def times_add_experience():
     operation_name = "data"
     paramenter1 = "email"
     paramenter2 = "fffff@gmail.com"
-    result = run_analise(operation=operation,
-                         operation_name=operation_name,
-                         parameter1=paramenter1,
-                         parameter2=paramenter2)
+    result, _ = run_analise(operation=operation,
+                            operation_name=operation_name,
+                            parameter1=paramenter1,
+                            parameter2=paramenter2)
     return result
 
 
