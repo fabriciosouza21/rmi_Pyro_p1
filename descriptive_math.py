@@ -1,5 +1,5 @@
 import statistics
-
+import math
 
 class descriptive_math:
     def __init__(self, times):
@@ -15,6 +15,7 @@ class descriptive_math:
         result["max"] = self.time_max()
         result["min"] = self.time_min()
         result["amplitude"] = self.amplitude()
+        result["confidence_interval"] = self.confidence_interval()
         return result
 
     def mean(self):
@@ -43,3 +44,17 @@ class descriptive_math:
 
     def amplitude(self):
         return(self.time_max()-self.time_min())
+    
+    def confidence_interval(self):
+        confidence_interval={}
+        mean = self.mean() 
+        Zc = 1.96
+        standard_deviation = self.pstdev()
+        population = len(self.times)
+        margin_error = Zc*(standard_deviation/math.sqrt(population))
+        upper_range = mean + margin_error
+        lower_range = mean - margin_error
+        confidence_interval["upper_range"] = upper_range
+        confidence_interval["lower_range"] = lower_range
+        confidence_interval["margin_error"] = margin_error
+        return(confidence_interval)
