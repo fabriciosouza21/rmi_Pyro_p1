@@ -3,3 +3,6 @@ pip install Pyro4
 pip install pip install  matplotlib
 pyro4-ns -n hostname
 pyro4-nsc list
+
+Recomendações
+1 - sempre utilizar a o client.py antes utilizar os arquivos com o prefixo time (realizar os teste poluem o banco )
