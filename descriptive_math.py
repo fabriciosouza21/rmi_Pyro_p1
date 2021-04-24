@@ -19,7 +19,7 @@ class descriptive_math:
         return result
 
     def mean(self):
-        return(statistics.mean(self.times))
+        return(statistics.fmean(self.times))
 
     def median(self):
         return(statistics.median(self.times))
@@ -31,7 +31,7 @@ class descriptive_math:
         return (statistics.multimode(self.times))
 
     def pstdev(self):
-        return(statistics.pstdev(self.times, self.mean()))
+        return(statistics.stdev(self.times))
 
     def pvariance(self):
         return(statistics.pvariance(self.times, self.mean()))
@@ -51,10 +51,13 @@ class descriptive_math:
         Zc = 1.96
         standard_deviation = self.pstdev()
         population = len(self.times)
-        margin_error = Zc*(standard_deviation/math.sqrt(population))
+        margin_error = Zc*(standard_deviation/math.sqrt(len(self.times)))
         upper_range = mean + margin_error
         lower_range = mean - margin_error
         confidence_interval["upper_range"] = upper_range
         confidence_interval["lower_range"] = lower_range
         confidence_interval["margin_error"] = margin_error
+        #print(margin_error,upper_range,lower_range)
         return(confidence_interval)
+#descriptive_math1 = descriptive_math([446,450,554,547,486,498,440,560,451,568])
+#descriptive_math1.confidence_interval()
