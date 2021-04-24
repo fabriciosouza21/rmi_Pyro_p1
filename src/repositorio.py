@@ -18,7 +18,7 @@ class RepositorioProfessionalProfile:
         for k, user in self.profiles.items():
             if user[field] == search:
                 user_search.append(user)
-            elif type(user[field]) is list:        
+            elif type(user[field]) is list:
                 for user_filde in user[field]:
                     if user_filde == search:
                         user_search.append(user)
@@ -32,26 +32,9 @@ class RepositorioProfessionalProfile:
         return user_search
 
     def load(self):
+
         profiles_data = {}
-        if os.path.exists('data.json'):
-            with open('data.json') as f:
+        if os.path.exists('src/data.json'):
+            with open('src/data.json') as f:
                 profiles_data = json.load(f)
         self.profiles = profiles_data
-
-
-user = RepositorioProfessionalProfile()
-A = {
-    "email": "@gmail.com",
-    "nome": "fabricio",
-    "sobrenome": "souza",
-    "residencia": "Ananideua",
-    "formacao academica": [
-            "ciencia da computacao"
-    ],
-    "habilidade": [
-        "programação web"
-    ],
-    "experiencia": [
-        "projeto pessoais em django"
-    ]
-}
