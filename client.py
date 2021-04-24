@@ -105,7 +105,7 @@ def adicionar_perfil():
 
     habilidade = input("Habilidade: ")
     habilidades.append(habilidade)
-    perfil["habilidades"] = habilidades
+    perfil["habilidade"] = habilidades
 
     experiencia = input("Experiência: ")
     experiencias.append(experiencia)

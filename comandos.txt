@@ -3,6 +3,34 @@ pip install Pyro4
 pip install pip install  matplotlib
 pyro4-ns -n hostname
 pyro4-nsc list
+Git-hub --- https://github.com/fabriciosouza21/rmi_Pyro_p1.git
+Git-hub --- https://github.com/fabio21777/rmi_Pyro_p1.git
+github  --- https://github.com/YannFigueiredo/rmi_Pyro_p1.git
 
-Recomendações
-1 - sempre utilizar a o client.py antes utilizar os arquivos com o prefixo time (realizar os teste poluem o banco )
+Recomendações:
+utilizar uma virtualenv
+testa comandos de menu cliente.py antes de realizar os teste times_'operação' ou gerar os graficos ele podem poluir o banco do server
+para torna o host visivel e necessario modificar a variavel host no serve, para o ip que ira hospeda, apos esse processo utilizar o 
+comando pyro4-ns -n hostname é executar o servidor
+
+por padrão as entradas são strings não é necessario adicionar as aspas
+3-entrada Filtrar perfis
+    Listar todos os dados dos perfis filtrados
+        Qual o campo que deseja pesquisar?  "email"  
+            Informe email "yannfabricio@gmail.com"   
+
+4-entrada Retornar lista de curso específico
+    Digite o Curso: "sistema de informação"
+
+5-entrada Habilidades por cidade
+    Residência na qual deseja localizar as habilidades:"belem"
+
+6-Dado o email do perfil, retornar sua experiência
+    Digite o email da busca:"yannfabricio@gmail.com"
+
+7-Adicionar nova experiencia dado o email
+    Email:"yannfabricio@gmail.com"
+    Experiência:"String qualquer"
+
+8-Dado o email de um perfil, retornar suas informações
+    Digite o email da busca: "yannfabricio@gmail.com"

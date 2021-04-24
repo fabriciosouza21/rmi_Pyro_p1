@@ -1,6 +1,6 @@
 {
-    "@gmail.com": {
-        "email": "@gmail.com",
+    "fabricio@gmail.com": {
+        "email": "fabricio@gmail.com",
         "nome": "fabricio",
         "sobrenome": "souza",
         "residencia": "belem",
@@ -14,9 +14,9 @@
             "projeto pessoais em django"
         ]
     },
-    "fffff@gmail.com": {
-        "email": "fffff@gmail.com",
-        "nome": "fabricio",
+    "fabio@gmail.com": {
+        "email": "fabio@gmail.com",
+        "nome": "fabio",
         "sobrenome": "souza",
         "residencia": "belem",
         "formacao academica": [
