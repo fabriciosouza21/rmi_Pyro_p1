@@ -1,10 +1,10 @@
-from run_analise import run_analise
+from src.run_analise import run_analise
 import Pyro4
 
 conection = Pyro4.Proxy("PYRONAME:example.interface")
 
 
-def time_search_users_course():
+def time_all_profile():
     operation = conection.all_profile
     operation_name = "all_profile"
     result, _ = run_analise(operation=operation,
@@ -12,4 +12,4 @@ def time_search_users_course():
     return result
 
 
-print(time_search_users_course())
+print(time_all_profile())

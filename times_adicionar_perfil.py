@@ -1,4 +1,4 @@
-from run_analise import run_analise
+from src.run_analise import run_analise
 import Pyro4
 
 conection = Pyro4.Proxy("PYRONAME:example.interface")

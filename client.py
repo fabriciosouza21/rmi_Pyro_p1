@@ -32,15 +32,18 @@ def filter_data():
 
             break
         elif(opcao_filtro == 2):
-            dado = [] 
+            dado = []
             field = input("Qual o campo que deseja pesquisar? ").strip()
             search = input("Informe {}: ".format(field)).strip()
-            dado.append(input("Informe qual dado do perfil deve aparecer: ").strip())
+            dado.append(
+                input("Informe qual dado do perfil deve aparecer: ").strip())
 
             while True:
-                op_dado = int(input("\nDeseja adicionar mais um dado? [1-Sim/2-Não] "))
+                op_dado = int(
+                    input("\nDeseja adicionar mais um dado? [1-Sim/2-Não] "))
                 if op_dado == 1:
-                    dado.append(input("Informe qual dado do perfil deve aparecer: ").strip())
+                    dado.append(
+                        input("Informe qual dado do perfil deve aparecer: ").strip())
                 elif op_dado == 2:
                     break
                 else:
@@ -50,7 +53,7 @@ def filter_data():
 
             for user in users:
                 print('\n{}: {}'.format(field, user[field]))
-                
+
                 for i in range(0, len(dado)):
                     print('{}: {}'.format(dado[i], user[dado[i]]))
 
@@ -72,9 +75,9 @@ def search_user_email_return_xp():
     email = input("Digite o email da busca: ")
     exp_user = conection.search_user_email_return_xp(email)
     print('Experiência de um usuário a partir do email {}: \n'.format(email))
-    
+
     for i in range(len(exp_user[0])):
-    	print('Experiência {}: {}'.format(i+1, exp_user[0][i]))
+        print('Experiência {}: {}'.format(i+1, exp_user[0][i]))
 
 
 def search_user_email_return_inf():

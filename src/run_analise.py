@@ -1,5 +1,5 @@
-from communication_time import communication_time
-from descriptive_math import descriptive_math
+from src.communication_time import communication_time
+from src.descriptive_math import descriptive_math
 
 
 def run_analise(operation, operation_name, parameter1=None, parameter2=None):
