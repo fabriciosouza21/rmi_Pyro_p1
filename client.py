@@ -160,28 +160,25 @@ def main():
             adicionar_perfil()
 
         elif(opcao == 2):
-            break  # Editar perfil
-
-        elif(opcao == 3):
             users = conection.all_profile()
             show_users(users)
 
-        elif(opcao == 4):
+        elif(opcao == 3):
             filter_data()
 
-        elif(opcao == 5):
+        elif(opcao == 4):
             search_users_course()
 
-        elif(opcao == 6):
+        elif(opcao == 5):
             ability_residence()
 
-        elif(opcao == 7):
+        elif(opcao == 6):
             search_user_email_return_xp()
 
-        elif (opcao == 8):
+        elif (opcao == 7):
             add_experience()
 
-        elif(opcao == 9):
+        elif(opcao == 8):
             search_user_email_return_inf()
 
         elif(opcao == 0):
